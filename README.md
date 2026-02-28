@@ -1,5 +1,5 @@
 # Music.D
-# 🎵 MUSIC-D (sub-use) - Glassmorphism Cinema
+# 🎵 MUSIC-D (sub-use)
 
 A professional, ultra-modern YouTube video player interface featuring a cinematic **Glassmorphism** design. This single-page application uses dynamic background animations and a robust URL parser to provide a premium viewing experience.
 
