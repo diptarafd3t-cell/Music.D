@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music.D Workflow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff3e3e;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #0a0a0c;
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .workflow-container {
+            display: flex;
+            gap: 20px;
+            max-width: 1000px;
+            width: 90%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .step {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 24px;
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .step-number {
+            background: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px rgba(255, 62, 62, 0.4);
+        }
+
+        h3 { margin-bottom: 10px; font-size: 1.1rem; }
+        p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+        /* Connector Arrows for Desktop */
+        @media (min-width: 769px) {
+            .step:not(:last-child)::after {
+                content: '→';
+                position: absolute;
+                right: -20px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--primary);
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .workflow-container { flex-direction: column; }
+            .step:not(:last-child)::after {
+                content: '↓';
+                display: block;
+                margin-top: 10px;
+                color: var(--primary);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="workflow-container">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Input URL</h3>
+            <p>User pastes a YouTube link (Shorts, Mobile, or Desktop) into the input field.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Regex Filter</h3>
+            <p>The system runs a Regex check to isolate the unique 11-character Video ID.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>DOM Update</h3>
+            <p>The <iframe> source is dynamically updated with the new ID without refreshing.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Playback</h3>
+            <p>Cinema mode activates with ambient background animations for the user.</p>
+        </div>
+    </div>
+
+</body>
+</html>
